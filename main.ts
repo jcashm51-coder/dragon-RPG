@@ -1,6 +1,7 @@
 namespace SpriteKind {
     export const player2 = SpriteKind.create()
     export const enemy2 = SpriteKind.create()
+    export const tree = SpriteKind.create()
 }
 namespace StatusBarKind {
     export const health2 = StatusBarKind.create()
@@ -68,7 +69,7 @@ function setuplevel3 () {
     }
     scene.setBackgroundColor(1)
     // Change background color for new level
-    textSprite4 = textsprite.create("level #2 select an action", 1, 15)
+    textSprite4 = textsprite.create("level #3 select an action", 1, 15)
     textSprite5 = textsprite.create("<A> = Basic attack", 1, 15)
     textSprite6 = textsprite.create("<B> = shield", 1, 15)
     textSprite7 = textsprite.create("<UP> = strong attack", 1, 15)
@@ -188,7 +189,7 @@ function setupLevel2 () {
     // Harder boss
     statusbar2.value = 80
     statusbar2.setLabel("strong dragon HP", 15)
-    mySprite2.setPosition(100, 80)
+    mySprite2.setPosition(89, 80)
     currentStage = 1
 }
 function setupLevel1 () {
@@ -201,30 +202,23 @@ function setupLevel1 () {
     if (statusbar2) {
         statusbar2.destroy()
     }
-    scene.setBackgroundColor(1)
-    textSprite = textsprite.create("select a action", 1, 15)
-    textSprite2 = textsprite.create("<A> = Basic attack", 1, 15)
-    textSprite3 = textsprite.create("<B> = shield", 1, 15)
-    textSprite.setPosition(80, 10)
-    textSprite2.setPosition(60, 30)
-    textSprite3.setPosition(42, 40)
     mySprite = sprites.create(img`
-        1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 
-        1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 
-        1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 
-        1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 
-        1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 
-        1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 
-        1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 
-        1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 
-        1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 
-        1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 
-        1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 
-        1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 
-        1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 
-        1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 
-        1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 
-        1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
         `, SpriteKind.Player)
     mySprite2 = sprites.create(img`
         1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 
@@ -244,24 +238,31 @@ function setupLevel1 () {
         1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 
         1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 
         `, SpriteKind.Enemy)
+    scene.setBackgroundColor(1)
+    textSprite = textsprite.create("select a action", 1, 15)
+    textSprite2 = textsprite.create("<A> = Basic attack", 1, 15)
+    textSprite3 = textsprite.create("<B> = shield", 1, 15)
+    textSprite.setPosition(80, 10)
+    textSprite2.setPosition(60, 30)
     statusbar2 = statusbars.create(20, 4, StatusBarKind.EnemyHealth)
     statusbar2.attachToSprite(mySprite2)
     statusbar2.max = 100
     statusbar2.value = 100
     statusbar2.setLabel("dragon HP", 15)
-    mySprite2.setPosition(115, 80)
+    mySprite2.setPosition(110, 80)
     statusbar = statusbars.create(20, 4, StatusBarKind.Health)
     statusbar.attachToSprite(mySprite)
     statusbar.setLabel("your HP", 15)
     statusbar.max = 110
     statusbar.value = 110
-    mySprite.setPosition(115, 90)
+    mySprite.setPosition(116, 90)
     currentStage = 0
+    textSprite3.setPosition(42, 40)
 }
-let mySprite: Sprite = null
 let textSprite3: TextSprite = null
 let textSprite2: TextSprite = null
 let textSprite: TextSprite = null
+let mySprite: Sprite = null
 let textSprite8: TextSprite = null
 let textSprite7: TextSprite = null
 let textSprite6: TextSprite = null
@@ -271,7 +272,6 @@ let mySprite2: Sprite = null
 let statusbar: StatusBarSprite = null
 let statusbar2: StatusBarSprite = null
 let currentStage = 0
-// Start the game at Level 1
 setupLevel1()
 // Set stage to Level 2
 // Handler to check for level changes every 100ms
